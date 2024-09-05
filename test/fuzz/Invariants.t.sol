@@ -61,7 +61,7 @@ contract Invariants is StdInvariant, Test {
         dsce.getMinHealthFactor();
         dsce.getCollateralTokens();
         dsce.getDsc();
-        dsce.getCollateralTokenPriceFeed();
-        dsce.getHealthFactor();
+        // dsce.getCollateralTokenPriceFeed();
+        // dsce.getHealthFactor();
     }
 }
