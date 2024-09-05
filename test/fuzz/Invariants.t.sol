@@ -15,7 +15,7 @@ import {DeployDSC} from "../../script/DeployDSC.s.sol";
 import {DSCEngine} from "../../src/DSCEngine.sol";
 import {DecentralizedStableCoin} from "../../src/DecentralizedStableCoin.sol";
 import {HelperConfig} from "../../script/HelperConfig.s.sol";
-import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {Handler} from "./Handler.t.sol";
 
 contract Invariants is StdInvariant, Test {
@@ -32,7 +32,7 @@ contract Invariants is StdInvariant, Test {
         (dsc, dsce, config) = deployer.run();
         (,, weth, wbtc,) = config.activeNetworkConfig();
         // targetContract(address(dsce));
-        handler = new Handler(dsce,dsc);
+        handler = new Handler(dsce, dsc);
         targetContract(address(handler));
         // don't call redeemCollateral, unless there is collateral to redeem
     }
@@ -49,7 +49,7 @@ contract Invariants is StdInvariant, Test {
         uint256 wbtcValue = dsce.getUsdValue(wbtc, totalWbtcDeposited);
 
         assert(wethValue + wbtcValue >= totalSupply); // we dont have to do equals to but we are doing
-        // only here to test and ignore the (weth = 0, wbtc = 0, totalSupply = 0) issue
+            // only here to test and ignore the (weth = 0, wbtc = 0, totalSupply = 0) issue
     }
 
     function invariant_gettersShouldNotRevert() public view {

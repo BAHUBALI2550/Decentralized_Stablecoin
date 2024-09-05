@@ -15,7 +15,7 @@ import {DeployDSC} from "../../script/DeployDSC.s.sol";
 import {DSCEngine} from "../../src/DSCEngine.sol";
 import {DecentralizedStableCoin} from "../../src/DecentralizedStableCoin.sol";
 import {HelperConfig} from "../../script/HelperConfig.s.sol";
-import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract InvariantsTest is StdInvariant, Test {
     DeployDSC deployer;
@@ -44,6 +44,6 @@ contract InvariantsTest is StdInvariant, Test {
         uint256 wbtcValue = dsce.getUsdValue(wbtc, totalWbtcDeposited);
 
         assert(wethValue + wbtcValue >= totalSupply); // we dont have to do equals to but we are doing
-        // only here to test and ignore the (weth = 0, wbtc = 0, totalSupply = 0) issue
+            // only here to test and ignore the (weth = 0, wbtc = 0, totalSupply = 0) issue
     }
 }
